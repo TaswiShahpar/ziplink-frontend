@@ -140,11 +140,6 @@ const globalCSS = `
   .stat-card:hover { transform: translateY(-2px); }
 `;
 
-function rnd() {
-  const c = 'abcdefghijklmnopqrstuvwxyz0123456789';
-  return Array.from({length:6}, () => c[Math.floor(Math.random()*c.length)]).join('');
-}
-
 const DEMOS = [
   {
     label: 'Amazon link',
