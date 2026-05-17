@@ -206,7 +206,7 @@ export default function App() {
         console.log('Backend response:', data);
         const code = data.split('myapp.com/')[1]?.split(' ')[0];
         console.log('Extracted code:', code);
-        setResult('http://localhost:8080/' + code);
+        setResult('https://ziplink-backend-tcqk.onrender.com/' + code);
         setLinks(l => l + 1);
       } 
     } catch {
@@ -234,7 +234,7 @@ export default function App() {
     if(!statsCode){setStatsError('Please enter a short code!'); return;}
     setStatsLoading(true);
     try{
-      const res=await fetch(`http://localhost:8080/stats/${statsCode}`);
+      const res=await fetch(`https://ziplink-backend-tcqk.onrender.com/stats/${statsCode}`);
       const data=await res.text();
       if(data === 'URL not found!'){setStatsError('No URL found for this code!');}
       else{
