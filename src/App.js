@@ -203,9 +203,11 @@ export default function App() {
       const data = await res.text();
       if (data.startsWith('Error')) { setError(data); }
       else {
-        console.log('Backend response:', data);
-        const code = data.split('myapp.com/')[1]?.split(' ')[0];
+        const parts = data.split('myapp.com/');
+        const code = parts.length > 1 ? parts[1].split(' ')[0] : null;
+        console.log('Full response:',data);
         console.log('Extracted code:', code);
+        if (!code){setError('Something went wrong!');return; }
         setResult('https://ziplink-backend-tcqk.onrender.com/' + code);
         setLinks(l => l + 1);
       } 
