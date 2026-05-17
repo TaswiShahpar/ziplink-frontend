@@ -195,7 +195,7 @@ export default function App() {
     if (!longUrl.startsWith('http')) { setError('URL must start with http:// or https://'); return; }
     setLoading(true);
     try {
-      const res  = await fetch('http://localhost:8080/shorten', {
+      const res  = await fetch('https://ziplink-backend-tcqk.onrender.com/shorten', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ longUrl, customAlias: alias }),
